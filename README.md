@@ -1,10 +1,11 @@
-### Development
+## Development
 
 ````bash
 go mod tidy
 go run .
+````
 
-### Install
+## Install
 
 ### macOS / Linux
 ```bash
