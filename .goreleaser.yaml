@@ -1,0 +1,44 @@
+version: 2
+
+project_name: ports
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - main: .
+    binary: ports
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -X main.Version={{.Version}}
+      - -X main.Commit={{.Commit}}
+      - -X main.Date={{.Date}}
+
+archives:
+  - name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+
+brews:
+  - name: ports
+    homepage: https://github.com/acousticclown/ports
+    description: Beautiful CLI to list, check and kill running ports
+    license: MIT
+
+    repository:
+      owner: acousticclown
+      name: homebrew-ports
+
+    install: |
+      bin.install "ports"
+
+release:
+  github:
+    owner: acousticclown
+    name: ports
