@@ -35,7 +35,7 @@ func printHelp() {
 func printVersion() {
 	fmt.Printf(
 		"ports %s\ncommit: %s\nbuilt:  %s\n",
-		ports.Version, ports.Commit, ports.Date,
+		Version, Commit, Date,
 	)
 }
 
