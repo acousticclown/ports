@@ -27,6 +27,7 @@ archives:
 
 brews:
   - name: ports
+
     homepage: https://github.com/acousticclown/ports
     description: Beautiful CLI to list, check and kill running ports
     license: MIT
@@ -34,6 +35,8 @@ brews:
     repository:
       owner: acousticclown
       name: homebrew-ports
+
+    directory: Formula
 
     install: |
       bin.install "ports"
